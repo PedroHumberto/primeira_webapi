@@ -46,3 +46,12 @@ Para localizar um filme por id devemos passar um parametro na notation de HttpGe
         }
 ```
 O retorno é do tipo IActionResult pois o tipo para Ok e NotFound é ``IActionResult``
+
+---
+
+
+## DTO (Data Transfer Object)
+
+
+É um Design Pattern
+Ideia criar classes para estanciar objetos responsaveis por transferir os dados entre as partes do nosso sistema

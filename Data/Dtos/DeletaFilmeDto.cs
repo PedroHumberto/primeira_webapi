@@ -1,14 +1,13 @@
 using System.ComponentModel.DataAnnotations;
-namespace FilmesAPI.Models
-{
-    public class Filme{
 
-        
+namespace FilmesAPI.Data.Dtos
+{
+    public class DeletaFilmeDto{
         [Key]
         [Required]
         public int Id { get;  set; }
 
-        [Required(ErrorMessage = "Campo Titulo é Obrigatorio")]
+       [Required(ErrorMessage = "Campo Titulo é Obrigatorio")]
         public string Titulo { get; set; }
 
         [Required(ErrorMessage = "Campo Diretor é Obrigatorio")]
@@ -20,6 +19,5 @@ namespace FilmesAPI.Models
         
         [Range(1, 600, ErrorMessage = "Campo Duracao é Obrigatorio")]
         public int Duracao { get; set; }
-
     }
 }
