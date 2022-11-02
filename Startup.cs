@@ -24,7 +24,7 @@ namespace FilmesAPI
         {   
             
             string connectionStr = Configuration.GetConnectionString("FilmeConnection");
-            services.AddDbContext<FilmeContext>(opts => opts.UseMySql(connectionStr, ServerVersion.Parse("5.7.40")));
+            services.AddDbContext<AppDbContext>(opts => opts.UseMySql(connectionStr, ServerVersion.Parse("5.7.40")));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

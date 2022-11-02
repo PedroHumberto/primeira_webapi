@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FilmesAPI.Migrations
 {
-    [DbContext(typeof(FilmeContext))]
+    [DbContext(typeof(AppDbContext))]
     partial class FilmeContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -17,6 +17,21 @@ namespace FilmesAPI.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "6.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
+
+            modelBuilder.Entity("FilmesAPI.Models.Cinema", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cinemas");
+                });
 
             modelBuilder.Entity("FilmesAPI.Models.Filme", b =>
                 {

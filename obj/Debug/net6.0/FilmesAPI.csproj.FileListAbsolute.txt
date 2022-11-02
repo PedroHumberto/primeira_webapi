@@ -60,3 +60,5 @@ D:\Programming\ASP.NET\primeira_webapi\bin\Debug\net6.0\Microsoft.EntityFramewor
 D:\Programming\ASP.NET\primeira_webapi\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
 D:\Programming\ASP.NET\primeira_webapi\bin\Debug\net6.0\MySqlConnector.dll
 D:\Programming\ASP.NET\primeira_webapi\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
+D:\Programming\ASP.NET\primeira_webapi\bin\Debug\net6.0\AutoMapper.dll
+D:\Programming\ASP.NET\primeira_webapi\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
