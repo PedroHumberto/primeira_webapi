@@ -73,3 +73,5 @@ UseLazyLoadingProxies() para relacionar objetos, para o banco de dados não volt
 
         }
 ```
+
+*Adicionando Migration ``dotnet ef migrations add "nome da migration"``
