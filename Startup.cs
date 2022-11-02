@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore.Proxies;
 
 namespace FilmesAPI
 {
@@ -24,7 +25,7 @@ namespace FilmesAPI
         {   
             
             string connectionStr = Configuration.GetConnectionString("FilmeConnection");
-            services.AddDbContext<AppDbContext>(opts => opts.UseMySql(connectionStr, ServerVersion.Parse("5.7.40")));
+            services.AddDbContext<AppDbContext>(opts => opts.UseLazyLoadingProxies().UseMySql(connectionStr, ServerVersion.Parse("5.7.40")));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

@@ -55,3 +55,21 @@ O retorno é do tipo IActionResult pois o tipo para Ok e NotFound é ``IActionRe
 
 É um Design Pattern
 Ideia criar classes para estanciar objetos responsaveis por transferir os dados entre as partes do nosso sistema
+
+
+## Lazy
+UseLazyLoadingProxies() para relacionar objetos, para o banco de dados não voltar nulo. Deve ser declarado no corpo do aplicação
+
+
+## Relacionando Base
+
+```c#
+ protected override void OnModelCreating(ModelBuilder builder){
+            
+            builder.Entity<Endereco>()
+            .HasOne(endereco => endereco.Cinema)//O endereço possui um cinema
+            .WithOne(cinema => cinema.Endereco) //o cinema possui um endereço
+            .HasForeignKey<Cinema>(cinema => cinema.EnderecoId); //o cinema possui uma chave externa para dar acesso para encontrar o endereço
+
+        }
+```

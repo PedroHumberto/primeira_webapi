@@ -33,7 +33,7 @@ namespace FilmesAPI.Controllers
        
         [HttpGet]
         public IEnumerable<Cinema> RecuperaCinema()
-        {
+        {   
             return _context.Cinemas;
         }
 
