@@ -16,7 +16,8 @@ namespace FilmesAPI.Controllers
 
         private AppDbContext _context;
         private IMapper _mapper;
-        public CinemaController(AppDbContext context, IMapper mapper){
+        public CinemaController(AppDbContext context, IMapper mapper)
+        {
             _context = context;
             _mapper = mapper;
         }
@@ -28,13 +29,14 @@ namespace FilmesAPI.Controllers
 
             _context.Cinemas.Add(cinema);
             _context.SaveChanges();
-            return CreatedAtAction(nameof(RecuperarCinemaPorId), new {Id = cinema.Id}, cinema); //status da requisição e o local onde foi criado o recurso "https://localhost:5000/Filmes/1"
+            return CreatedAtAction(nameof(RecuperarCinemaPorId), new { Id = cinema.Id }, cinema); //status da requisição e o local onde foi criado o recurso "https://localhost:5000/Filmes/1"
         }
-       
+
         [HttpGet]
-        public IEnumerable<Cinema> RecuperaCinema()
-        {   
-            return _context.Cinemas;
+
+        public IActionResult showCinemas()
+        {
+            return Ok(_context.Cinemas.ToList());
         }
 
         [HttpGet("{id}")]
@@ -53,9 +55,10 @@ namespace FilmesAPI.Controllers
             }
         }
         [HttpPatch("{id}")]
-        public IActionResult AtualizCinema(int id, [FromBody]UpdateDiretorDto filmeNovoDiretorDto){
-            
-            
+        public IActionResult AtualizCinema(int id, [FromBody] UpdateDiretorDto filmeNovoDiretorDto)
+        {
+
+
             Filme filme = _context.Filmes.FirstOrDefault(filme => filme.Id == id);
 
             if (filme == null)
@@ -71,9 +74,10 @@ namespace FilmesAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult AtualizaCampo(int id, [FromBody] UpdateCinemaDto cinemaNovoDto){
-            
-            
+        public IActionResult AtualizaCampo(int id, [FromBody] UpdateCinemaDto cinemaNovoDto)
+        {
+
+
             Cinema cinema = _context.Cinemas.FirstOrDefault(filme => filme.Id == id);
 
 
@@ -89,9 +93,10 @@ namespace FilmesAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeletaCinema(int id){
-            
-            
+        public IActionResult DeletaCinema(int id)
+        {
+
+
             Cinema cinema = _context.Cinemas.FirstOrDefault(filme => filme.Id == id);
 
             if (cinema == null)

@@ -9,10 +9,17 @@ namespace FilmesAPI.Data{
         }
         protected override void OnModelCreating(ModelBuilder builder){
             
+            // metodo 1 pra 1
             builder.Entity<Endereco>()
             .HasOne(endereco => endereco.Cinema)
             .WithOne(cinema => cinema.Endereco)
             .HasForeignKey<Cinema>(cinema => cinema.EnderecoId);
+
+            //metodo de 1 -> para varios
+            builder.Entity<Cinema>()
+            .HasOne(cinema => cinema.Gerente)
+            .WithMany(gerente => gerente.Cinemas)
+            .HasForeignKey(cinema => cinema.GerenteId);
 
         }
 
